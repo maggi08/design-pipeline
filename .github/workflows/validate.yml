@@ -1,0 +1,42 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/validate.mjs
+      - run: node scripts/test.mjs
+
+  tag:
+    # The claude-pipeline marketplace pins this plugin by tag ("ref": "v<version>"), so every version on main gets one.
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Version tag, if it does not exist yet
+        run: |
+          tag="v$(node -p "require('./.claude-plugin/plugin.json').version")"
+          if git rev-parse -q --verify "refs/tags/${tag}" >/dev/null; then
+            echo "${tag} already exists"
+            exit 0
+          fi
+          git tag "${tag}"
+          git push origin "${tag}"
+          echo "created ${tag}"

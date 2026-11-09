@@ -1,0 +1,51 @@
+/*
+ * <Project> tokens — generated from DESIGN.md by /design-system. DESIGN.md is the source of truth; keep both in step.
+ * Names follow the target app's theme (shadcn/ui names by default) so the handoff copies them as they are.
+ * @contrast --foreground/--background --foreground/--card --muted-foreground/--background --muted-foreground/--card --primary-foreground/--primary --destructive-foreground/--destructive
+ */
+:root {
+  --font-sans: "<Body face>", system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, monospace;
+
+  --radius: 0.5rem;
+
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --ring: #0f172a;
+
+  --chart-1: #0f172a;
+  --chart-2: #64748b;
+  --chart-3: #94a3b8;
+  --chart-4: #cbd5e1;
+  --chart-5: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1120;
+    --foreground: #f1f5f9;
+    --card: #111827;
+    --card-foreground: #f1f5f9;
+    --muted: #1f2937;
+    --muted-foreground: #94a3b8;
+    --primary: #f1f5f9;
+    --primary-foreground: #0b1120;
+    --accent: #1f2937;
+    --accent-foreground: #f1f5f9;
+    --destructive: #f87171;
+    --destructive-foreground: #0b1120;
+    --border: #1f2937;
+    --ring: #f1f5f9;
+  }
+}

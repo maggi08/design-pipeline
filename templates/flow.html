@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><Project> — <Flow></title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=<Body+face>:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* Flow styles: var(--…) only. Values that are not tokens belong in DESIGN.md first. */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font: 400 14px/1.5 var(--font-sans); }
+  [data-screen] { min-height: 100vh; }
+  [data-screen]:not(:target) { display: none; }
+  body:not(:has([data-screen]:target)) [data-screen]:first-of-type { display: block; }
+
+  /* Prototype chrome — not part of the product (data-proto-chrome). */
+  .proto-nav { position: fixed; right: 12px; bottom: 12px; z-index: 99; display: flex; flex-wrap: wrap; gap: 4px; max-width: 360px;
+    padding: 6px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); font-size: 12px; }
+  .proto-nav a { padding: 2px 6px; border-radius: 4px; color: var(--muted-foreground); text-decoration: none; }
+  .proto-nav a:hover { background: var(--muted); color: var(--foreground); }
+</style>
+</head>
+<body>
+
+<section id="<flow>-main" data-screen>
+  <!-- The default state with real content. -->
+</section>
+
+<section id="<flow>-empty" data-screen>
+  <!-- Nothing yet: what appears and the one action that fills it. -->
+</section>
+
+<section id="<flow>-error" data-screen>
+  <!-- What went wrong and how to recover, in the product's words. -->
+</section>
+
+<nav class="proto-nav" data-proto-chrome aria-label="Prototype screens">
+  <a href="index.html">← all flows</a>
+  <a href="#<flow>-main">main</a>
+  <a href="#<flow>-empty">empty</a>
+  <a href="#<flow>-error">error</a>
+</nav>
+
+</body>
+</html>
